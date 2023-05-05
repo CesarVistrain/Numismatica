@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+   --dark: #333;
+   --ligth: #fff;
+}
+
+body{
+   display: flex;
+   justify-content: center;
+   height: 100vh;
+   align-items: center;
+   overflow: hidden;
+   font-family: 'Ubuntu', sans-serif;
+   transition:all 0.5s;
+   background: var(--dark);
+}
+
+body .images{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+    min-width: 600px;
+    max-width: 900px;
+    width: calc(100% - 100);
+    height: 400px;
+}
+
+body .images .image{
+    position: relative;
+    overflow: hidden;
+    min-width: 60px;
+    margin: 10px;
+    background-size: auto 100%;
+    background-position: center;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.1,0.1,0.1,0.1);
+}
+
+body .images .image.active{
+    flex-grow: 10000;
+    transform: scale(1);
+    max-width: 600px;
+    margin: 0;
+    border-radius: 25px;
+    background-size: auto 100%;
+}
+
+body .images .image.active .label{
+    background: var(--dark);
+    padding: 10px;
+    border-radius: 50px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+}
+
+body .images .image:not(.active){
+    flex-grow: 1;
+    border-radius: 25px;
+}
+
+body .images .image:not(.active) .label{
+    bottom: 10px;
+    left: 10px;
+}
+
+body .images .image:not(.active) .label .info{
+    display: none;
+}
+
+body .images .image .label{
+    display: flex;
+    position: absolute;
+}
+
+body .images .image .label .icon{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--ligth);
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--dark);
+}
+
+body .images .image .label .info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    color: var(--ligth);
+}
+
+body .images .image .label .info .main{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
